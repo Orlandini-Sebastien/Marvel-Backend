@@ -7,7 +7,14 @@ app.use(express.json());
 
 router.get("/comics", async(req, res) => {
   try {
-    const response  = await axios.get( `https://lereacteur-marvel-api.herokuapp.com/comics?apiKey=${process.env.KEY}`)
+
+    let page = Number(req.query.page);
+    const limit =100;
+    if(!page){page=0;}
+   
+    const comic = req.query.comic;
+
+    const response  = await axios.get( `https://lereacteur-marvel-api.herokuapp.com/comics?title=${comic}&skip=${limit*page}&apiKey=${process.env.KEY}`)
     res.json(response.data.results);
     } catch (error) {
     res.json({error : error.message})
@@ -17,12 +24,15 @@ router.get("/comics", async(req, res) => {
 
 router.get("/comic/:characterId", async(req, res) => {
     try {
-      const response  = await axios.get( `https://lereacteur-marvel-api.herokuapp.com/comics/characterId?apiKey=${process.env.KEY}`)
+        const characterId = req.params.characterId
+      const response  = await axios.get( `https://lereacteur-marvel-api.herokuapp.com/comics/${characterId}?apiKey=${process.env.KEY}`)
       res.json(response.data);
       } catch (error) {
       res.json({error : error.message})
     }
   });
+
+
 
   
   router.get("/comic/:comicId", async(req, res) => {
