@@ -31,5 +31,8 @@ app.all("*", (req,res)=>{
 
 app.listen(process.env.PORT, (req,res)=>{
   
+
     console.log("🚀🚀 Server has started 🚀🚀");
+
+
   } );
