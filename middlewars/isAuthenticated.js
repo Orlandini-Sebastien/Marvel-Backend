@@ -2,6 +2,7 @@ const UserMarvel = require("../models/UserMarvel");
 
 const isAuthenticated = async(req,res,next)=>{
   try {
+    console.log(req.headers);
     const userMarvel = await UserMarvel.findOne({
     token: req.headers.authorization.replace("Bearer ", "")
   });

@@ -2,6 +2,9 @@ const express = require("express");
 const router = express.Router();
 const axios =require ("axios");
 
+
+const isAuthenticated = require("../middlewars/isAuthenticated");
+
 router.get("/characters", async(req, res) => {
   try {
   
@@ -18,7 +21,7 @@ router.get("/characters", async(req, res) => {
   }
 });
 
-router.get("/character/:characterId", async(req, res) => {
+router.get("/character/:characterId", isAuthenticated, async(req, res) => {
 
   const characterId = req.params.characterId ;
    console.log(characterId)

@@ -4,7 +4,9 @@ const UserMarvel = mongoose.model("UserMarvel", {
   email: String,
   account: {
     username: String,
-    avatar: Object, 
+    favorits: {  
+      favorisCharacters: [String],
+      favorisComics: [String], }
   },
   newsletter: Boolean,
   token: String,

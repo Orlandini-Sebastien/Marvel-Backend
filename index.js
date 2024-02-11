@@ -23,6 +23,9 @@ app.use(routesCaracters);
 const routesUser = require("./routes/userMarvel");
 app.use(routesUser);
 
+const routesFavoris = require("./routes/favoris");
+app.use(routesFavoris);
+
 
 
 app.all("*", (req,res)=>{
