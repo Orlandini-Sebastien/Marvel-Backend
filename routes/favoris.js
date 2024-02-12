@@ -1,14 +1,11 @@
 const express = require("express");
 const router = express.Router();
-
-
 const isAuthenticated = require("../middlewars/isAuthenticated");
 const UserMarvel = require( "../models/UserMarvel");
 
-router.post("/favoris/save", isAuthenticated , async(req,res)=>{
+router.post("/favoris", isAuthenticated , async(req,res)=>{
     try {
       const { favorisCharacters , favorisComics} = req.body;
-
       const userMarvel = await UserMarvel.findOne({
         token: req.headers.authorization.replace("Bearer ", "")
       });
