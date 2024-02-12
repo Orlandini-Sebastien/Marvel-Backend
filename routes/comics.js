@@ -15,14 +15,14 @@ router.get("/comics", async(req, res) => {
     const comic = req.query.comic;
 
     const response  = await axios.get( `https://lereacteur-marvel-api.herokuapp.com/comics?title=${comic}&skip=${limit*page}&apiKey=${process.env.MARVEL_KEY}`)
-    res.json(response.data.results);
+    res.json(response.data);
     } catch (error) {
     res.json({error : error.message})
   }
 });
 
 
-router.get("/comic/:characterId", async(req, res) => {
+router.get("/comics/:characterId", async(req, res) => {
     try {
         const characterId = req.params.characterId
       const response  = await axios.get( `https://lereacteur-marvel-api.herokuapp.com/comics/${characterId}?apiKey=${process.env.MARVEL_KEY}`)

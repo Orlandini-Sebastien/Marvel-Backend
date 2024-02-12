@@ -10,12 +10,12 @@ router.get("/characters", async(req, res) => {
   
      let page = Number(req.query.page);
      const limit =100;
-     if(!page){page=0;}
+     if(!page){page=0;}  
     
      const character = req.query.character;
-   
+  
     const response  = await axios.get( `https://lereacteur-marvel-api.herokuapp.com/characters?name=${character}&skip=${limit*page}&apiKey=${process.env.MARVEL_KEY}`)
-    res.json(response.data.results);
+    res.json(response.data);
     } catch (error) {
     res.json({error : error.message})
   }

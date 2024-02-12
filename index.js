@@ -4,7 +4,6 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-
 require('dotenv').config();
 
 const mongoose = require("mongoose");
@@ -35,7 +34,7 @@ app.all("*", (req,res)=>{
 app.listen(process.env.PORT, (req,res)=>{
   
 
-    console.log("🚀🚀 Server has started 🚀🚀");
+    console.log("🚀🚀 Server has started  🚀🚀");
 
 
   } );
