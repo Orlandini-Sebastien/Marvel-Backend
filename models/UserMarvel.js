@@ -5,8 +5,8 @@ const UserMarvel = mongoose.model("UserMarvel", {
   account: {
     username: String,
     favorits: {  
-      favorisCharacters: [String],
-      favorisComics: [String], }
+      favorisCharacters: String,
+      favorisComics: String, }
   },
   token: String,
   hash: String,

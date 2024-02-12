@@ -15,7 +15,7 @@ router.post("/userMarvel/signup", async(req,res)=>{
         const favorite_Characters = req.body.favorite_Characters;
         const favorite_Comics = req.body.favorite_Comics;
 
-   
+
         const salt = uid2(16);
         const hash = SHA256(password + salt).toString(encBase64);
         const token = uid2(16);
@@ -33,7 +33,6 @@ router.post("/userMarvel/signup", async(req,res)=>{
                   favorisCharacters: favorite_Characters,
                   favorisComics: favorite_Comics, }
               },
-           
             token: token,
             hash: hash,
             salt: salt,
